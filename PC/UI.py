@@ -7,6 +7,11 @@ class InterfaceWattpiti(tk.Tk):
     def __init__(self):
         super().__init__()
 
+        # mesures à afficher par le powermeter
+        self.wavelength = 0 # en nm
+        self.power = 0 # en W
+        self.position = (0,0) # position du centre du faisceau sur le capteur
+
         #création de l'interface
         self.title("Puissance-mètre Wattpiti")
         self.geometry("1800x1800")
@@ -37,8 +42,21 @@ class InterfaceWattpiti(tk.Tk):
     def click_start(self):
         pass
 
+
+    
+    def set_wavelength(self, wavelength: float):
+        self.wavelength = wavelength
+    
+    def set_power(self, power: float):
+        self.power = power
+
+    def set_position(self, position: tuple):
+        self.position = position
+
 if __name__ == "__main__":
     app = InterfaceWattpiti()
+    app.set_wavelength(2000)
+    print(app.wavelength)
     app.mainloop()
 
 

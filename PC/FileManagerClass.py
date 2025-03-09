@@ -1,4 +1,4 @@
-import time
+from datetime import datetime
 
 class FileManager():
 
@@ -7,7 +7,9 @@ class FileManager():
         if filename:
             self.filename = filename
         else: 
-            self.filename = f"data_{time.time()}.csv"
+            now = datetime.now()
+            dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+            self.filename = f"data_{dt_string}.csv"
 
     def save_data(self, data):
         # save data in a file everytime the mcu gives new data points

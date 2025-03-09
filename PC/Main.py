@@ -12,9 +12,13 @@ if __name__ == "__main__":
 
     algorithm_manager = AlgorithmManager(data)
 
+    file_manager = FileManager()
+    file_manager.save_data(data)
+
     position = algorithm_manager.calculate_position()
     power = algorithm_manager.calculate_power()
     wavelength = algorithm_manager.calculate_wavelength()
+
 
     interface = InterfaceWattpiti()
     interface.set_position(position)
